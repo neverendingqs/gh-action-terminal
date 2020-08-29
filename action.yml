@@ -2,7 +2,7 @@ name: Run terminal command
 branding:
   icon: terminal
   color: black
-description: Run any terminal command and commit the changes.
+description: Run any terminal command.
 runs:
   using: composite
   steps:
