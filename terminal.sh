@@ -12,3 +12,4 @@ STDOUT=$(${GH_COMMENT:${#PREFIX}})
 
 echo "::set-output name=exit-code::$(echo $?)"
 echo "::set-output name=stdout::$(echo ${STDOUT})"
+echo "::set-output name=command::$(echo ${GH_COMMENT:${#PREFIX}})"

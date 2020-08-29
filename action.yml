@@ -8,11 +8,14 @@ inputs:
     description: Prefix to use to trigger this action.
     default: /terminal
 outputs:
+  command:
+    description: The command the action received.
+    value: ${{ steps.run-terminal-command.outputs.command }}
   exit-code:
-    description: Exit code of the command
+    description: Exit code of the command.
     value: ${{ steps.run-terminal-command.outputs.exit-code }}
   stdout:
-    description: stdout of the command
+    description: stdout of the command.
     value: ${{ steps.run-terminal-command.outputs.stdout }}
 runs:
   using: composite
