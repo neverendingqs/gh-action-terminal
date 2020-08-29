@@ -1,0 +1,12 @@
+name: Run terminal command
+branding:
+  icon: terminal
+  color: black
+description: Run any terminal command and commit the changes.
+runs:
+  using: composite
+  steps:
+    - run: ${{ github.action_path }}/terminal.sh
+      shell: bash
+      env:
+        GH_EVENT_PAYLOAD: ${{ github.event }}
