@@ -9,4 +9,4 @@ runs:
     - run: ${{ github.action_path }}/terminal.sh
       shell: bash
       env:
-        GH_EVENT_PAYLOAD: ${{ github.event }}
+        GH_EVENT_PAYLOAD: ${{ github.event.comment.body }}
