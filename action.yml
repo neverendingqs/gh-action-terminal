@@ -3,10 +3,23 @@ branding:
   icon: terminal
   color: black
 description: Run any terminal command.
+inputs:
+  command-prefix:
+    description: Prefix to use to trigger this action.
+    default: /terminal
+outputs:
+  exit-code:
+    description: Exit code of the command
+    value: ${{ steps.run-terminal-command.outputs.exit-code }}
+  stdout:
+    description: stdout of the command
+    value: ${{ steps.run-terminal-command.outputs.stdout }}
 runs:
   using: composite
   steps:
-    - run: ${{ github.action_path }}/terminal.sh
+    - id: run-terminal-command
+      run: ${{ github.action_path }}/terminal.sh
       shell: bash
       env:
-        GH_EVENT_PAYLOAD: ${{ github.event.comment.body }}
+        CMD_PREFIX: ${{ inputs.command-prefix }}
+        GH_COMMENT: ${{ github.event.comment.body }}
